@@ -1,32 +1,19 @@
-
-from pyowm import OWM
-from pyowm.utils import config
-from pyowm.utils import timestamps
+import requests
 
 
-owm = OWM('be727924bed4a3fd6611f93cefce59a1')
-mgr = owm.weather_manager()
+API_KEY = 'be727924bed4a3fd6611f93cefce59a1'
+CITY = input("ENTER CITY:")
+URL = f'https://api.openweathermap.org/data/2.5/weather?q={CITY}&appid={API_KEY}&units=metric'
 
-# Search for current weather in London (Great Britain) and get details
-observation = mgr.weather_at_place('London,GB')
-w = observation.weather
+response = requests.get(URL)
+data = response.json()
 
-w.detailed_status         # 'clouds'
-w.wind()                  # {'speed': 4.6, 'deg': 330}
-w.humidity                # 87
-w.temperature('celsius')  # {'temp_max': 10.5, 'temp': 9.7, 'temp_min': 9.0}
-w.rain                    # {}
-w.heat_index              # None
-w.clouds                  # 75
+if response.status_code == 200:
+    print(f"City: {data['name']}")
+    print(f"Temperature: {data['main']['temp']}°C")
+    print(f"Weather: {data['weather'][0]['description']}")
+    print(f"humidity: {data['main']['humidity']}")
+    print(f"wind: {data['wind']['speed']}")
 
-print('Description:',w.detailed_status)
-print('Temperature: ',w.temperature('celsius'),'°C')
-print('Humidity: ',w.humidity)
-print(w.rain)
-print('clouds: ',w.clouds)
-print('Wind: ',w.wind())
-
-
-
-
-
+else:
+    print("Error:", data["message"])

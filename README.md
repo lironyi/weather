@@ -2,7 +2,6 @@
 
  Python Project proposal: Weather Checker Applicatio
 
-Python Project Submission Instructions for Students
 
 Email Submission:
 
@@ -22,23 +21,7 @@ Important Notes:
 
 
 
-Python Project proposal: Weather Checker Application
+Python Project - Weather Checker Application
+code writen in the PyCharm that provides a weather data for a city name input
+by Using the requests library to make API calls. 
 
-Project Overview
-
-Your primary objective is to create a text-based Python colab notebook that can fetch and display weather data for any specified location.
-This project will bolster your understanding of Python's core concepts and introduce you to JSON structures and RESTful APIs.
-Here's how to get started:
-Core Functionality Instructions
-
-Objective: Build a weather data fetching application in a Google Colab notebook.
-Setup:
-Start with a new Google Colab notebook for an easy-to-use Python environment.
-API Integration:
-Sign up for an API key from OpenWeatherMap.
-Familiarize yourself with the API's endpoints, request URLs, and JSON response format.
-Application Development:
-Write code in the Colab notebook that asks for a city name input.
-Use the requests library to make API calls and retrieve weather data.
-Extract and display relevant data such as temperature, weather conditions, and humidity.
-Stretch Goals
